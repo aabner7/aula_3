@@ -1,10 +1,11 @@
-var numeroSecreto = parseInt(Math.random() * 11);
+const btnFunction = document.getElementById("btn-function");
+const numeroSecreto = parseInt(Math.random() * 11);
+let count = 0;
+let elementoResultado = document.getElementById("resultado");
 
 function Chutar() {
-    console.log("executei")
-    var chute = parseInt(document.getElementById("valor").value);
-    var elementoResultado = document.getElementById("resultado");
-    for (var i = 0, i < 3, i++) {
+    if (count < 3) {
+        const chute = parseInt(document.getElementById("valor").value);
         if (chute > 10 | chute < 0) {
             elementoResultado.innerHTML = "tu é imbecil? ta falando aqui que é de 0 a 10";
         } else {
@@ -16,9 +17,12 @@ function Chutar() {
                 elementoResultado.innerHTML = "Errou, babaca. é maior";
             }
         }
+        count++;
+    } else {
+        elementoResultado.innerHTML = "kkkkkkk otario tu é ruim d++++++";
     }
-    console.log = "Você tem mais " + i + "tentativas, caralho");
 }
-const Test = () => {
-    console.log("executei 2");
-}
+
+btnFunction.addEventListener("click", (event) => {
+    Chutar();
+})
